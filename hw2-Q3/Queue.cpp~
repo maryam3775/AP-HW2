@@ -1,0 +1,97 @@
+#include<iostream>
+#include<string>
+#include<sstream>
+#include<fstream>
+#include"Queue.h"
+
+Queue::Queue(std::string f)
+{
+  filename = f;
+  std::ifstream file(f,std::ios_base::in);
+  
+  if(file.is_open())
+    {
+      file>>size;
+      //std::cout<<size<<std::endl;
+      while(file>>tmp)
+	{
+	  v.push_back(tmp);
+	  file>>ch;
+	 index++;
+	}
+      
+       write= &v [index];
+        read=& v[0];
+         if(write>read)
+	 distance=write -read;
+       else
+       distance=read-write;
+    }
+  // std::cout<<index<<std::endl;
+}
+
+
+void Queue::displayQueue()
+{
+  int x=( write -&v[0]);
+  std::cout<<x<<std::endl;
+  if(write>read)
+  {
+    // std::cout<<x<<std::endl;
+    take=read;
+    for(int i{};i<distance;i++)
+      {
+	//	std::cout<<(*(read))<<std::endl;
+	read++;
+      }
+    read=take;
+    
+    //std::cout<<(*(read))<<std::endl;
+  }
+    else
+      {
+	for(int i{};i<size;i++)
+	  {
+	    float* p{&v[i]};
+	     if(!(write<p && p<read))
+	       
+	     std::cout<<v[i]<<std::endl;
+	     //  write++;
+	      }
+	write--;
+	 std::cout<<x<<"else is called!!"<<std::endl;
+  std::cout<<(*write)<<std::endl;
+      }
+ 
+  }
+void Queue::enQueue(float num)
+
+{
+  if(write !=(&v[size-1]))
+    { int x=( write -&v[0]);
+	      newnum=num;
+	      *(write)=num;
+    
+	      std::cout<<"first end"<<std::endl;
+	      std::cout<<*(write)<<std::endl;
+	      write++;
+	      x=( write -&v[0]);
+	      // write--;
+	      std::cout<<x<<"enQueue is called"<<"    "<<v[5]<<std::endl;}
+  else
+    {
+       newnum=num;
+        //*(write)=num;
+	// write= &v[0];
+       std::cout<< *(write)<<std::endl;
+     /*if(read==write)
+	{
+	  // std:: cout<<"fix it!!"<<std::endl;
+	   std::cout<<"cant write"<<std::endl;
+	  // std::cout<< *(write)<<std::endl;
+	  }*/
+	
+  
+   
+	  }
+}

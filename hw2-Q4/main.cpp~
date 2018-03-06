@@ -1,0 +1,13 @@
+#include<iostream>
+#include<string>
+
+
+int main()
+{
+  int tmp{};
+  int num{};
+
+  std::cout<<"please enter numbers and if you are  done end this process by entering 0";
+  
+  return 0;
+}

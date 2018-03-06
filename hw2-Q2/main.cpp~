@@ -1,0 +1,39 @@
+#include<iostream>
+#include<fstream>
+#include<vector>
+
+
+
+
+int main()
+
+{
+  std::string tmp;
+  std::vector<std::string>store;
+  std::ifstream myfile("Error_find.txt",std:: fstream::in);
+  
+  if (myfile.is_open())
+    {
+    
+    while (!myfile.eof())
+      {
+
+	getline (myfile,tmp);
+	store.push_back(tmp);
+	
+      }
+    for(unsigned int i{}; i <store.size();i++)
+      {
+
+	std::cout<<store[i];
+      }
+  
+    }
+
+
+
+
+
+
+  return 0;
+}

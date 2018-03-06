@@ -1,0 +1,17 @@
+
+#include<iostream>
+#include"Queue.h"
+#include<string>
+
+int main()
+{
+   Queue q{"Queue.txt"};
+   
+    q. displayQueue();
+    q.enQueue(58);
+   q.enQueue(59);
+   q.enQueue(60);
+   
+
+   return 0;
+}
